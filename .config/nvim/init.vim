@@ -1,3 +1,9 @@
+"Notes:
+"This is the neovim configuration of 'Özgür Isbert'.
+"I will be updating this file on my behalf
+"and add/remove certain tools/plugins/setups
+"
+"Have fun with my neovim config!
   "Plugins
     call plug#begin()
     Plug 'nvim-lua/popup.nvim'
