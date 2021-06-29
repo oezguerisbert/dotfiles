@@ -5,12 +5,14 @@
     Plug 'nvim-telescope/telescope.nvim'
     call plug#end()
   "Keybinds
+    let mapleader=" "
     "Global keybinds
       noremap <up> <nop>
       noremap <down> <nop>
       noremap <left> <nop>
       noremap <right> <nop>
-      
+      nnoremap <SPACE> <nop>
+
       inoremap <up> <nop>
       inoremap <down> <nop>
       inoremap <left> <nop>
