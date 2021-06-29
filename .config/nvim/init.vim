@@ -1,8 +1,9 @@
-  "Telescope
+  "Plugins
     call plug#begin()
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    Plug 'codota/tabnine-vim'
     call plug#end()
   "Keybinds
     let mapleader=" "
