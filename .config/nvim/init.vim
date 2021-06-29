@@ -4,6 +4,8 @@
 "and add/remove certain tools/plugins/setups
 "
 "Have fun with my neovim config!
+  "Global Setup
+  set number
   "Plugins
     call plug#begin()
     Plug 'nvim-lua/popup.nvim'
