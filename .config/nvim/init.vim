@@ -12,6 +12,7 @@
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'codota/tabnine-vim'
+    Plug 'jaredgorski/spacecamp'
     call plug#end()
   "Keybinds
     let mapleader=" "
