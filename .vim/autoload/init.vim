@@ -1,2 +1,2 @@
 "Colorscheme
-colorscheme "spacecamp"
+colorscheme spacecamp
