@@ -138,5 +138,10 @@ mkd() {
     cd -P -- "$1" && clear
 }
 
+diary() {
+	export DIARY_FOLDER=~/Documents/GitHub/me/$(date +'%d-%m-%Y')
+	[[ ! -f DIARY_FOLDER ]] && mkdir -p -- "$DIARY_FOLDER" && cd -P -- "$DIARY_FOLDER" && nvim README.md
+}
+
 # cd ~
 clear

@@ -7,4 +7,4 @@ cp ~/.zshrc ~/Documents/GitHub/dotfiles/.zshrc
 # backup&restore
 cp ~/backup ~/Documents/GitHub/dotfiles/backup
 cp ~/restore ~/Documents/GitHub/dotfiles/restore
-
+cd -P -- ~/Documents/GitHub/dotfiles
