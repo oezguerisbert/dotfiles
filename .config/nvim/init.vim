@@ -13,6 +13,7 @@
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'codota/tabnine-vim'
     Plug 'jaredgorski/spacecamp'
+    Plug 'drewtempelmeyer/palenight.vim'
     call plug#end()
   "Keybinds
     let mapleader=" "
@@ -35,4 +36,5 @@
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
       nnoremap <leader>fh <cmd>Telescope help_tags<cr>
   "ColorScheme
-  colorscheme spacecamp
+  set background=dark
+  colorscheme palenight
