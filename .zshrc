@@ -145,6 +145,22 @@ diary() {
 	[[ ! -d $DIARY_FOLDER ]] && mkdir -p -- "$DIARY_FOLDER" && cd -P -- "$DIARY_FOLDER" && touch README.md && nvim README.md
 	[[ -d $DIARY_FOLDER ]] && cd -P -- "$DIARY_FOLDER" && nvim README.md
 }
+dfb() {
+	cp -r ~/.vim/** ~/Documents/GitHub/dotfiles/.vim
+	cp -r ~/.local/share/konsole ~/Documents/GitHub/dotfiles/.local/share/
+	cp ~/.config/nvim/init.vim ~/Documents/GitHub/dotfiles/.config/nvim/init.vim
+	cp ~/.zshrc ~/Documents/GitHub/dotfiles/.zshrc
+	cd -P -- ~/Documents/GitHub/dotfiles
+	echo "Backuped to GitHub(oezguerisbert/dotfiles)"
+}
+dfr() {
+	mkdir ~/restore-files
+	rsync -a ~/Documents/GitHub/dotfiles ~/restore-files/
+	mv ~/restore-files/dotfiles/** ~/
+	rm -rf ~/restore-files
+	echo "Restored the backup from GitHub(oezguerisbert/dotfiles)"
 
+
+}
 # cd ~
 clear
