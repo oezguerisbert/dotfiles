@@ -159,8 +159,6 @@ dfr() {
 	mv ~/restore-files/dotfiles/** ~/
 	rm -rf ~/restore-files
 	echo "Restored the backup from GitHub(oezguerisbert/dotfiles)"
-
-
 }
 # cd ~
 clear
