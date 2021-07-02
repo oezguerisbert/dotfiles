@@ -27,7 +27,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -139,8 +139,11 @@ mkd() {
 }
 
 diary() {
-	export DIARY_FOLDER=~/Documents/GitHub/my-diary/$(date +'%d-%m-%Y')
-	[[ ! -f DIARY_FOLDER ]] && mkdir -p -- "$DIARY_FOLDER" && cd -P -- "$DIARY_FOLDER" && touch README.md && nvim README.md
+	export DIARY_GIT_FOLDER=~/Documents/GitHub/my-diary
+	export DIARY_FOLDER="$DIARY_GIT_FOLDER/"$(date +'%d-%m-%Y')
+	[[ ! -d $DIARY_GIT_FOLDER ]] && cd -P ~/Documents/GitHub && git clone git@github.com:oezguerisbert/my-diary.git
+	[[ ! -d $DIARY_FOLDER ]] && mkdir -p -- "$DIARY_FOLDER" && cd -P -- "$DIARY_FOLDER" && touch README.md && nvim README.md
+	[[ -d $DIARY_FOLDER ]] && cd -P -- "$DIARY_FOLDER" && nvim README.md
 }
 
 # cd ~
