@@ -14,6 +14,7 @@
     Plug 'codota/tabnine-vim'
     Plug 'jaredgorski/spacecamp'
     Plug 'drewtempelmeyer/palenight.vim'
+    Plug 'prettier/vim-prettier', { 'do': 'pnpm i' }
     call plug#end()
   "Keybinds
     let mapleader=" "
