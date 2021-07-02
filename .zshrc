@@ -140,7 +140,7 @@ mkd() {
 
 diary() {
 	export DIARY_FOLDER=~/Documents/GitHub/my-diary/$(date +'%d-%m-%Y')
-	[[ ! -f DIARY_FOLDER ]] && mkdir -p -- "$DIARY_FOLDER" && cd -P -- "$DIARY_FOLDER" && nvim README.md
+	[[ ! -f DIARY_FOLDER ]] && mkdir -p -- "$DIARY_FOLDER" && cd -P -- "$DIARY_FOLDER" && touch README.md && nvim README.md
 }
 
 # cd ~
