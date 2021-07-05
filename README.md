@@ -8,3 +8,6 @@ In order to use the exact same files, you need to have [oh-my-zsh](https://githu
 
 **PS: I will write down all the _upcoming_ requirements in here.**
 
+## Terminal
+
+I'm currently using the Konsole terminal as my terminal. The settings and configurationa are listed under the `.local/share/konsole` folder in this repository.
