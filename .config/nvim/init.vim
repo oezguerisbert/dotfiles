@@ -36,6 +36,9 @@
       nnoremap <leader>fg <cmd>Telescope live_grep<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
       nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+    "Tabination-Keybind
+      nnoremap <leader>nt <cmd>tabn<cr>
+      nnoremap <leader>pt <cmd>tabp<cr>
   "ColorScheme
   set background=dark
   colorscheme palenight
