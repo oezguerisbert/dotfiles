@@ -10,4 +10,4 @@ In order to use the exact same files, you need to have [oh-my-zsh](https://githu
 
 ## Terminal
 
-I'm currently using the Konsole terminal as my terminal. The settings and configurationa are listed under the `.local/share/konsole` folder in this repository.
+I'm currently using the Konsole terminal as my terminal. The settings and configurationa are listed under the [.local/share/konsole](/.local/share/konsole) folder in this repository.
