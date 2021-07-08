@@ -172,5 +172,11 @@ dfr() {
 	rm -rf ~/restore-files
 	echo "Restored the backup from GitHub(oezguerisbert/dotfiles)"
 }
+ghf() {
+	[[ ! -d ~/Documents/GitHub/$1 ]] \
+		&& mkd ~/Documents/GitHub/$1 \
+		&& git init
+	cd -P -- ~/Documents/GitHub/$1
+}
 # cd ~
 clear
