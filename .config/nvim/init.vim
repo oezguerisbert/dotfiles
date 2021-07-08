@@ -12,6 +12,7 @@
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'codota/tabnine-vim'
+    Plug 'sindrets/diffview.nvim'
     Plug 'jaredgorski/spacecamp'
     Plug 'drewtempelmeyer/palenight.vim'
     Plug 'prettier/vim-prettier', { 'do': 'pnpm i' }
