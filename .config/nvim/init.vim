@@ -8,6 +8,7 @@
   set number
   "Plugins
     call plug#begin()
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -16,6 +17,11 @@
     Plug 'jaredgorski/spacecamp'
     Plug 'drewtempelmeyer/palenight.vim'
     Plug 'prettier/vim-prettier', { 'do': 'pnpm i' }
+    Plug 'pangloss/vim-javascript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'peitalin/vim-jsx-typescript'
+    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+    Plug 'jparise/vim-graphql'
     call plug#end()
   "Keybinds
     let mapleader=" "

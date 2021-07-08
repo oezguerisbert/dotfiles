@@ -146,7 +146,9 @@ DaySuffix() {
     *)       echo "th";;
   esac
 }
-
+myconfig(){
+	nvim ~/.config/nvim/init.vim
+}
 diary() {
 	export DIARY_GIT_FOLDER=~/Documents/GitHub/my-diary
 	export DIARY_DAYS=${1:-0}
