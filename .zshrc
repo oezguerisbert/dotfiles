@@ -173,11 +173,12 @@ dfr() {
 	echo "Restored the backup from GitHub(oezguerisbert/dotfiles)"
 }
 ghf() {
-	export FOLDER_BASE_PATH=~/Documents/GitHub/
-	[[ ! -d $($FOLDER_BASE_PATH)$1 ]] \
-		&& mkdir -p -- "$FOLDER_BASE_PATH$1" \
-		&& cd -P -- "$FOLDER_BASE_PATH$1" \
+	export FOLDER_BASE_PATH=~/Documents/GitHub
+	[[ ! -d $FOLDER_BASE_PATH/$1 ]] \
+		&& mkdir -p -- "$FOLDER_BASE_PATH/$1" \
+		&& cd -P -- "$FOLDER_BASE_PATH/$1" \
 		&& git init
+	[[ -d $FOLDER_BASE_PATH/$1 ]] && cd -P -- "$FOLDER_BASE_PATH/$1"
 }
 # cd ~
 clear
