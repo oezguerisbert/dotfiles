@@ -38,6 +38,17 @@
       inoremap <right> <nop>
 
       inoremap jk <esc>
+    "Telescope settings
+lua << EOF
+    require("telescope").setup {
+      defaults = {
+        file_ignore_patterns = {
+          "node_modules/.*",
+          ".git/.*"
+        }
+      }
+    }
+EOF
     "Telescope keybinds
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fg <cmd>Telescope live_grep<cr>

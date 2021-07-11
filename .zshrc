@@ -152,8 +152,8 @@ myconfig(){
 diary() {
 	export DIARY_GIT_FOLDER=~/Documents/GitHub/my-diary
 	export DIARY_DAYS=${1:-0}
-	export DIARY_DATE_FORMATTED=$(date -d "$(date) $DIARY_DAYS days"  +"%d-%m-%Y")
-	export DIARY_DATE_STRING=$(date -d "$(date) $DIARY_DAYS days" +"%A%e`DaySuffix` %B %Y")
+	export DIARY_DATE_FORMATTED=$(date -d "$(date) $DIARY_DAYS days"  +"/%Y/%m/%d")
+	export DIARY_DATE_STRING=$(date -d "$(date) $DIARY_DAYS days" +"%A %e`DaySuffix` %B %Y")
 	export DIARY_FOLDER="$DIARY_GIT_FOLDER/"$DIARY_DATE_FORMATTED
 	[[ ! -d $DIARY_GIT_FOLDER ]] && cd -P ~/Documents/GitHub && git clone git@github.com:oezguerisbert/my-diary.git
 	[[ -d $DIARY_FOLDER ]] && cd -P -- "$DIARY_FOLDER" && nvim README.md
