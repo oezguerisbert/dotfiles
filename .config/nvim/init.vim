@@ -60,6 +60,8 @@ EOF
       nnoremap <leader>tn <cmd>tabnew .<cr>
     "Highlighting-Keybinds
       nnoremap <F3> :set hlsearch!<CR>
+    "Coc-Keybinds
+      nnoremap <leader>toi <cmd>CocCommand tsserver.organizeImports<cr>
   "ColorScheme
   set background=dark
   colorscheme palenight
