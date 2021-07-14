@@ -160,8 +160,8 @@ diary() {
 	[[ ! -d $DIARY_FOLDER ]] && mkdir -p -- "$DIARY_FOLDER" && cd -P -- "$DIARY_FOLDER" && touch README.md && echo "# $DIARY_DATE_STRING" >> README.md && nvim README.md
 }
 dfb() {
-	cp -r ~/.vim/** ~/Documents/GitHub/dotfiles/.vim
-	cp -r ~/.local/share/konsole ~/Documents/GitHub/dotfiles/.local/share/
+	[[ ! -d ~/.vim/ ]] && cp -r ~/.vim/** ~/Documents/GitHub/dotfiles/.vim
+	[[ ! -d ~/.local/share/konsole ]] && cp -r ~/.local/share/konsole ~/Documents/GitHub/dotfiles/.local/share/
 	cp ~/.config/nvim/init.vim ~/Documents/GitHub/dotfiles/.config/nvim/init.vim
 	cp ~/.zshrc ~/Documents/GitHub/dotfiles/.zshrc
 	cd -P -- ~/Documents/GitHub/dotfiles
