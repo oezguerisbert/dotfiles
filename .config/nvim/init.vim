@@ -6,6 +6,7 @@
 "Have fun with my neovim config!
   "Global Setup
   set number
+  set mouse=a
   "Plugins
     call plug#begin()
     Plug 'neoclide/coc.nvim', {'branch': 'release'}

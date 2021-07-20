@@ -182,5 +182,8 @@ ghf() {
 		&& git init
 	[[ -d $FOLDER_BASE_PATH/$1 ]] && cd -P -- "$FOLDER_BASE_PATH/$1"
 }
+n() {
+	nvim .
+}
 # cd ~
 clear
