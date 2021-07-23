@@ -176,10 +176,17 @@ dfr() {
 }
 ghf() {
 	export FOLDER_BASE_PATH=~/Documents/GitHub
-	[[ ! -d $FOLDER_BASE_PATH/$1 ]] \
-		&& mkdir -p -- "$FOLDER_BASE_PATH/$1" \
-		&& cd -P -- "$FOLDER_BASE_PATH/$1" \
-		&& git init
+	if [ ! -d $FOLDER_BASE_PATH/$1 ]; then
+		vared -p "Do you want to create the repository '$1'? (y/n)\n: " -c repo_accept
+		if [ $repo_accept = "y" ]; then
+			mkdir -p -- "$FOLDER_BASE_PATH/$1" \
+			&& cd -P -- "$FOLDER_BASE_PATH/$1" \
+			&& git init
+		else
+			echo "Ok, quit creating repository. Back to previous job";
+			return 0;
+		fi
+	fi
 	[[ -d $FOLDER_BASE_PATH/$1 ]] && cd -P -- "$FOLDER_BASE_PATH/$1"
 }
 n() {
