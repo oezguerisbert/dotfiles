@@ -168,6 +168,8 @@ dfb() {
 	echo "Backuped to GitHub(oezguerisbert/dotfiles)"
 }
 dfr() {
+	cd -P -- ~/Documents/GitHub/dotfiles && gl
+	cd -P -- ~
 	mkdir ~/restore-files
 	rsync -a ~/Documents/GitHub/dotfiles ~/restore-files/
 	mv ~/restore-files/dotfiles/** ~/
