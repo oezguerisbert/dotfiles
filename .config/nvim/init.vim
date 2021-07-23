@@ -23,6 +23,7 @@
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'jparise/vim-graphql'
+    Plug 'voldikss/vim-floaterm'
     call plug#end()
   "Keybinds
     let mapleader=" "
@@ -63,6 +64,12 @@ EOF
       nnoremap <F3> :set hlsearch!<CR>
     "Coc-Keybinds
       nnoremap <leader>toi <cmd>CocCommand tsserver.organizeImports<cr>
+    "Floaterm keybinds
+      nnoremap <leader>ft <cmd>FloatermNew --autoclose=1 --autohide=1<cr>
+      nnoremap <leader>ftp <cmd>FloatermPrev<cr>
+      nnoremap <leader>ftn <cmd>FloatermNext<cr>
+
+
   "ColorScheme
   set background=dark
   colorscheme palenight
