@@ -194,5 +194,8 @@ ghf() {
 n() {
 	nvim .
 }
+autoload-setup(){
+	sudo sysv-rc-conf
+}
 # cd ~
 clear
