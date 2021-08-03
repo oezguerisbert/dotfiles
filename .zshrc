@@ -194,6 +194,9 @@ ghf() {
 n() {
 	nvim .
 }
+osupdate() {
+	sudo apt update && sudo apt upgrade -y
+}
 autoload-setup(){
 	sudo sysv-rc-conf
 }
