@@ -192,7 +192,11 @@ ghf() {
 	[[ -d $FOLDER_BASE_PATH/$1 ]] && cd -P -- "$FOLDER_BASE_PATH/$1"
 }
 n() {
-	nvim .
+	if [[ $# -eq 0 ]]; then
+		nvim .
+	else
+		nvim $1
+	fi
 }
 osupdate() {
 	sudo apt update && sudo apt upgrade -y
