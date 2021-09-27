@@ -206,3 +206,7 @@ autoload-setup(){
 }
 # cd ~
 clear
+
+i3cfg() {
+	nvim ~/.config/i3/config
+}
