@@ -24,6 +24,7 @@
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
     Plug 'jparise/vim-graphql'
     Plug 'voldikss/vim-floaterm'
+    Plug 'ghifarit53/tokyonight-vim'
     call plug#end()
   "Keybinds
     let mapleader=" "
@@ -71,8 +72,12 @@ EOF
 
 
   "ColorScheme
-  set background=dark
-  colorscheme palenight
+  set termguicolors
+
+  let g:tokyonight_style = 'night' " available: night, storm
+  let g:tokyonight_enable_italic = 1
+
+  colorscheme tokyonight
 
 
   "GoTo code navigation.
