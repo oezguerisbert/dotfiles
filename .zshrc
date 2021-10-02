@@ -85,7 +85,7 @@ zplug "zsh-users/zsh-autosuggestions", from:github
 zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:1
 zplug "hlissner/zsh-autopair", defer:2
 zplug "YannickFricke/NodeAliases", use:"aliases.sh"
-zplug "code-stats/code-stats-zsh", from:gitlab, use:"codestats.plugin.zsh"
+#zplug "code-stats/code-stats-zsh", from:gitlab, use:"codestats.plugin.zsh"
 zplug "jerguslejko/zsh-symfony-completion", use:"symfony-console.plugin.zsh"
 zplug "lukechilds/zsh-nvm"
 zplug "agkozak/zsh-z"
@@ -191,13 +191,13 @@ ghf() {
 	fi
 	[[ -d $FOLDER_BASE_PATH/$1 ]] && cd -P -- "$FOLDER_BASE_PATH/$1"
 }
-n() {
-	if [[ $# -eq 0 ]]; then
-		nvim .
-	else
-		nvim $1
-	fi
-}
+#n() {
+#	if [[ $# -eq 0 ]]; then
+#		nvim .
+#	else
+#		nvim $1
+#	fi
+#}
 osupdate() {
 	sudo apt update && sudo apt upgrade -y
 }
@@ -209,4 +209,10 @@ clear
 
 i3cfg() {
 	nvim ~/.config/i3/config
+}
+tks() {
+	tmux kill-server
+}
+tmc() {
+	nvim ~/.tmux.conf
 }
