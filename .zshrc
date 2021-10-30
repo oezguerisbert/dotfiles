@@ -146,7 +146,7 @@ DaySuffix() {
     *)       echo "th";;
   esac
 }
-myconfig(){
+vimcfg(){
 	nvim ~/.config/nvim/init.vim
 }
 diary() {

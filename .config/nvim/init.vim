@@ -26,6 +26,7 @@
     Plug 'voldikss/vim-floaterm'
     Plug 'ghifarit53/tokyonight-vim'
     Plug 'wakatime/vim-wakatime'
+    Plug 'junegunn/goyo.vim'
     call plug#end()
   "Keybinds
     let mapleader=" "
