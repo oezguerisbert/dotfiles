@@ -7,6 +7,7 @@
   "Global Setup
   set number
   set mouse=a
+  set number relativenumber
   "Plugins
     call plug#begin()
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -71,7 +72,8 @@ EOF
       nnoremap <leader>ft <cmd>FloatermNew --autoclose=1 --autohide=1<cr>
       nnoremap <leader>ftp <cmd>FloatermPrev<cr>
       nnoremap <leader>ftn <cmd>FloatermNext<cr>
-
+    "Goyo keybinds
+      nnoremap <leader>g <cmd>Goyo<cr>
 
   "ColorScheme
   set termguicolors
@@ -100,6 +102,31 @@ EOF
       execute '!' . &keywordprg . " " . expand('<cword>')
     endif
   endfunction
+
+  function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set number relativenumber
+  set noshowcmd
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent call CocActionAsync('highlight')
