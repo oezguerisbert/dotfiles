@@ -8,9 +8,15 @@
   set number
   set mouse=a
   set number relativenumber
+  set clipboard=unnamedplus
+  set nobackup
+  set nowritebackup
+  set noswapfile
+
   "Plugins
     call plug#begin()
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
@@ -28,7 +34,14 @@
     Plug 'ghifarit53/tokyonight-vim'
     Plug 'wakatime/vim-wakatime'
     Plug 'junegunn/goyo.vim'
-    call plug#end()
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'saadparwaiz1/cmp_luasnip'
+    Plug 'nvim-telescope/telescope-file-browser.nvim'
+   call plug#end()
   "Keybinds
     let mapleader=" "
     "Global keybinds
@@ -66,9 +79,7 @@ EOF
       nnoremap <leader>tn <cmd>tabnew .<cr>
     "Highlighting-Keybinds
       nnoremap <F3> :set hlsearch!<CR>
-    "Coc-Keybinds
-      nnoremap <leader>toi <cmd>CocCommand tsserver.organizeImports<cr>
-    "Floaterm keybinds
+        "Floaterm keybinds
       nnoremap <leader>ft <cmd>FloatermNew --autoclose=1 --autohide=1<cr>
       nnoremap <leader>ftp <cmd>FloatermPrev<cr>
       nnoremap <leader>ftn <cmd>FloatermNext<cr>
@@ -82,16 +93,6 @@ EOF
   let g:tokyonight_enable_italic = 1
 
   colorscheme tokyonight
-
-
-  "GoTo code navigation.
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-
-  "Use K to show documentation in preview window.
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
 
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -109,7 +110,7 @@ EOF
     silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
   endif
   set noshowmode
-  set number relativenumber
+  "set number relativenumber
   set noshowcmd
   " ...
 endfunction
@@ -126,14 +127,5 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
-
-  " Highlight the symbol and its references when holding the cursor.
-  autocmd CursorHold * silent call CocActionAsync('highlight')
   
-  " Symbol renaming.
-  nmap <leader>rn <Plug>(coc-rename)
-  
-  " Formatting selected code.
-  xmap <leader>f  <Plug>(coc-format-selected)
-  nmap <leader>f  <Plug>(coc-format-selected)
+lua require("oezguerisbert") 
