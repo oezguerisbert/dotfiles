@@ -22,9 +22,9 @@
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'codota/tabnine-vim'
     Plug 'sindrets/diffview.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     Plug 'jaredgorski/spacecamp'
     Plug 'drewtempelmeyer/palenight.vim'
-    Plug 'prettier/vim-prettier', { 'do': 'pnpm i' }
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'peitalin/vim-jsx-typescript'
@@ -41,6 +41,7 @@
     Plug 'L3MON4D3/LuaSnip'
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'nvim-telescope/telescope-file-browser.nvim'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'html'] }
    call plug#end()
   "Keybinds
     let mapleader=" "
