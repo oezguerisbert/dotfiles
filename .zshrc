@@ -149,35 +149,9 @@ DaySuffix() {
 vimcfg(){
 	nvim ~/.config/nvim/init.vim
 }
-diary() {
-	export DIARY_GIT_FOLDER=~/Documents/GitHub/my-diary
-	export DIARY_DAYS=${1:-0}
-	export DIARY_DATE_FORMATTED=$(date -d "$(date) $DIARY_DAYS days"  +"/%Y/%m/%d")
-	export DIARY_DATE_STRING=$(date -d "$(date) $DIARY_DAYS days" +"%A %e`DaySuffix` %B %Y")
-	export DIARY_FOLDER="$DIARY_GIT_FOLDER/"$DIARY_DATE_FORMATTED
-	[[ ! -d $DIARY_GIT_FOLDER ]] && cd -P ~/Documents/GitHub && git clone git@github.com:oezguerisbert/my-diary.git
-	[[ -d $DIARY_FOLDER ]] && cd -P -- "$DIARY_FOLDER" && nvim README.md
-	[[ ! -d $DIARY_FOLDER ]] && mkdir -p -- "$DIARY_FOLDER" && cd -P -- "$DIARY_FOLDER" && touch README.md && echo "# $DIARY_DATE_STRING" >> README.md && nvim README.md
-}
-dfb() {
-	[[ ! -d ~/.vim/ ]] && cp -r ~/.vim/** ~/Documents/GitHub/dotfiles/.vim
-	[[ ! -d ~/.local/share/konsole ]] && cp -r ~/.local/share/konsole ~/Documents/GitHub/dotfiles/.local/share/
-	cp ~/.config/nvim/init.vim ~/Documents/GitHub/dotfiles/.config/nvim/init.vim
-	cp ~/.zshrc ~/Documents/GitHub/dotfiles/.zshrc
-	cd -P -- ~/Documents/GitHub/dotfiles
-	echo "Backuped to GitHub(oezguerisbert/dotfiles)"
-}
-dfr() {
-	cd -P -- ~/Documents/GitHub/dotfiles && gl
-	cd -P -- ~
-	mkdir ~/restore-files
-	rsync -a ~/Documents/GitHub/dotfiles ~/restore-files/
-	mv ~/restore-files/dotfiles/** ~/
-	rm -rf ~/restore-files
-	echo "Restored the backup from GitHub(oezguerisbert/dotfiles)"
-}
+
 ghf() {
-	export FOLDER_BASE_PATH=~/Documents/GitHub
+	export FOLDER_BASE_PATH=~/Documents/github.com
 	if [ ! -d $FOLDER_BASE_PATH/$1 ]; then
 		vared -p "Do you want to create the repository '$1'? (y/n)\n: " -c repo_accept
 		if [ $repo_accept = "y" ]; then
@@ -185,19 +159,11 @@ ghf() {
 			&& cd -P -- "$FOLDER_BASE_PATH/$1" \
 			&& git init
 		else
-			echo "Ok, quit creating repository. Back to previous job";
 			return 0;
 		fi
 	fi
 	[[ -d $FOLDER_BASE_PATH/$1 ]] && cd -P -- "$FOLDER_BASE_PATH/$1"
 }
-#n() {
-#	if [[ $# -eq 0 ]]; then
-#		nvim .
-#	else
-#		nvim $1
-#	fi
-#}
 osupdate() {
 	sudo apt update && sudo apt upgrade -y
 }
