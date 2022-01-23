@@ -151,7 +151,7 @@ vimcfg(){
 }
 
 ghf() {
-	export FOLDER_BASE_PATH=~/Documents/github.com
+	export FOLDER_BASE_PATH=~/Documents/repositories/github.com
 	if [ ! -d $FOLDER_BASE_PATH/$1 ]; then
 		vared -p "Do you want to create the repository '$1'? (y/n)\n: " -c repo_accept
 		if [ $repo_accept = "y" ]; then
