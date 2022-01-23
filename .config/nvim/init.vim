@@ -41,7 +41,7 @@
     Plug 'L3MON4D3/LuaSnip'
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'nvim-telescope/telescope-file-browser.nvim'
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'html'] }
+    Plug 'MunifTanjim/prettier.nvim'
    call plug#end()
   "Keybinds
     let mapleader=" "
