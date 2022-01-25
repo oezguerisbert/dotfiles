@@ -192,5 +192,5 @@ dcd() {
 	docker compose down
 }
 hs() {
-	pactl set-sink-volume 2 $1%
+	pactl set-sink-volume $1 $2%
 }
