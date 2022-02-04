@@ -42,7 +42,9 @@
     Plug 'saadparwaiz1/cmp_luasnip'
     Plug 'nvim-telescope/telescope-file-browser.nvim'
     Plug 'MunifTanjim/prettier.nvim'
-   call plug#end()
+    Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'MunifTanjim/eslint.nvim'
+    call plug#end()
   "Keybinds
     let mapleader=" "
     "Global keybinds
