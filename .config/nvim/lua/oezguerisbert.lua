@@ -1,4 +1,16 @@
+require("telescope").setup {
+  defaults = {
+    file_ignore_patterns = {
+      "node_modules/.*",
+      ".git/.*"
+    }
+  }
+}
+
+
 -- Native LSP Setup
+require'nvim-treesitter.configs'.setup { ensure_installed = "maintained", highlight = { enable = true } }
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require'lspconfig'.tsserver.setup{
   capabilities = capabilities,
@@ -10,10 +22,11 @@ require'lspconfig'.tsserver.setup{
   vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer=0})
   vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {buffer=0})
   vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", {buffer=0})
+  vim.keymap.set("n", "<leader>f", "<cmd>Prettier<cr>", {buffer=0})
   vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer=0})
   end,
 } -- connect to server
-
 -- LSP autocomplete
 vim.opt.completeopt={"menu", "menuone", "noselect"} -- setting vim values
 

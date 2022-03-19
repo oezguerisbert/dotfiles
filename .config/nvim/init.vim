@@ -12,15 +12,14 @@
   set nobackup
   set nowritebackup
   set noswapfile
-
+  set laststatus=3
   "Plugins
     call plug#begin()
-    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'codota/tabnine-vim'
     Plug 'sindrets/diffview.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
     Plug 'jaredgorski/spacecamp'
@@ -32,8 +31,6 @@
     Plug 'jparise/vim-graphql'
     Plug 'voldikss/vim-floaterm'
     Plug 'ghifarit53/tokyonight-vim'
-    Plug 'wakatime/vim-wakatime'
-    Plug 'junegunn/goyo.vim'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
@@ -60,17 +57,6 @@
       inoremap <right> <nop>
 
       inoremap jk <esc>
-    "Telescope settings
-lua << EOF
-    require("telescope").setup {
-      defaults = {
-        file_ignore_patterns = {
-          "node_modules/.*",
-          ".git/.*"
-        }
-      }
-    }
-EOF
     "Telescope keybinds
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fg <cmd>Telescope live_grep<cr>
@@ -86,49 +72,13 @@ EOF
       nnoremap <leader>ft <cmd>FloatermNew --autoclose=1 --autohide=1<cr>
       nnoremap <leader>ftp <cmd>FloatermPrev<cr>
       nnoremap <leader>ftn <cmd>FloatermNext<cr>
-    "Goyo keybinds
-      nnoremap <leader>g <cmd>Goyo<cr>
-
   "ColorScheme
   set termguicolors
 
   let g:tokyonight_style = 'night' " available: night, storm
-  let g:tokyonight_enable_italic = 1
+  let g:tokyonight_enable_italic = 0
 
   colorscheme tokyonight
 
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
-      call CocActionAsync('doHover')
-    else
-      execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
-  endfunction
-
-  function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowmode
-  "set number relativenumber
-  set noshowcmd
-  " ...
-endfunction
-
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  endif
-  set showmode
-  set showcmd
-  " ...
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-  
-lua require("oezguerisbert") 
+  lua require("oezguerisbert") 
+  lua require("eslintcfg")
