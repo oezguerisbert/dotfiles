@@ -17,11 +17,12 @@
     call plug#begin()
     Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
     Plug 'neovim/nvim-lspconfig'
+    Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'sindrets/diffview.nvim'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'jaredgorski/spacecamp'
     Plug 'drewtempelmeyer/palenight.vim'
     Plug 'pangloss/vim-javascript'
@@ -45,16 +46,16 @@
   "Keybinds
     let mapleader=" "
     "Global keybinds
-      noremap <up> <nop>
-      noremap <down> <nop>
-      noremap <left> <nop>
-      noremap <right> <nop>
+      "noremap <up> <nop>
+      "noremap <down> <nop>
+      "noremap <left> <nop>
+      "noremap <right> <nop>
       nnoremap <SPACE> <nop>
 
-      inoremap <up> <nop>
-      inoremap <down> <nop>
-      inoremap <left> <nop>
-      inoremap <right> <nop>
+      "inoremap <up> <nop>
+      "inoremap <down> <nop>
+      "inoremap <left> <nop>
+      "inoremap <right> <nop>
 
       inoremap jk <esc>
     "Telescope keybinds
@@ -81,4 +82,4 @@
   colorscheme tokyonight
 
   lua require("oezguerisbert") 
-  lua require("eslintcfg")
+  "lua require("eslintcfg")
