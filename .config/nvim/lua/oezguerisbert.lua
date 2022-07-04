@@ -2,17 +2,49 @@ require("telescope").setup {
   defaults = {
     file_ignore_patterns = {
       "node_modules/.*",
-      ".git/.*"
+      ".git/.*",
+      ".pycache/.*"
     }
   }
 }
 
+local null_ls = require("null-ls")
 
 -- Native LSP Setup
-require'nvim-treesitter.configs'.setup { ensure_installed = "maintained", highlight = { enable = true } }
+require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+
+local on_attach = function() 
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
+  vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
+  vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
+  vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
+  vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer=0})
+  vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {buffer=0})
+  vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", {buffer=0})
+  vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting_sync, {buffer=0})
+  vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer=0})
+end
+
 require'lspconfig'.tsserver.setup{
+  capabilities = capabilities,
+  init_options = require("nvim-lsp-ts-utils").init_options,
+  on_attach = on_attach
+} -- connect to serverk
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.code_actions.eslint,
+        null_ls.builtins.formatting.prettier,
+    },
+    on_attach = on_attach,
+})
+
+require'lspconfig'.pyright.setup{
   capabilities = capabilities,
   on_attach = function() 
   vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
@@ -22,11 +54,12 @@ require'lspconfig'.tsserver.setup{
   vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer=0})
   vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {buffer=0})
   vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", {buffer=0})
-  vim.keymap.set("n", "<leader>f", "<cmd>Prettier<cr>", {buffer=0})
+  vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {buffer=0})
   vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer=0})
   end,
 } -- connect to server
+
 -- LSP autocomplete
 vim.opt.completeopt={"menu", "menuone", "noselect"} -- setting vim values
 
