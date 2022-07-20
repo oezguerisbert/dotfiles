@@ -41,7 +41,6 @@ null_ls.setup({
 	null_ls.builtins.diagnostics.pylint,
         null_ls.builtins.code_actions.eslint,
         null_ls.builtins.formatting.prettierd,
-	null_ls.builtins.formatting.prismaFmt,
 	null_ls.builtins.formatting.djhtml,
 	null_ls.builtins.formatting.djlint,
 	null_ls.builtins.formatting.isort,
