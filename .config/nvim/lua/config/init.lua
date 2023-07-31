@@ -4,6 +4,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 
 req("config/treesitter")
+req("config/mason")
 req("config/lsp")
 req("config/colorscheme")
 req("config/telescope")
