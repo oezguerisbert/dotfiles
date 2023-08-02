@@ -22,6 +22,9 @@ return require('packer').startup(function(use)
   
   -- Post-install/update hook with neovim command
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  
+  --  gitsigns
+  use 'lewis6991/gitsigns.nvim'
 
   -- You can specify multiple plugins in a single call
   use {'tjdevries/colorbuddy.vim'}
