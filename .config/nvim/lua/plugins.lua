@@ -31,6 +31,8 @@ return require('packer').startup(function(use)
 
   -- use {'jose-elias-alvarez/null-ls.nvim'}
 
+  use 'github/copilot.vim'
+
   use {'MunifTanjim/prettier.nvim'}
 
   use {'hrsh7th/nvim-cmp','hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-buffer', 'hrsh7th/cmp-path'}
