@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+export PATH="$PATH:/home/oezguer/.local/bin/:/home/oezguer/.pulumi/bin:/usr/local/go/bin"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -70,7 +70,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,6 +90,7 @@ zplug "jerguslejko/zsh-symfony-completion", use:"symfony-console.plugin.zsh"
 zplug "lukechilds/zsh-nvm"
 zplug "agkozak/zsh-z"
 zplug "arzzen/calc.plugin.zsh"
+zplug "z-shell/zsh-eza"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -113,7 +114,7 @@ zplug load
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+export EDITOR='nvim'
 # fi
 
 # Compilation flags
@@ -138,31 +139,8 @@ mkd() {
         mkdir -p -- "$1" &&
     cd -P -- "$1" && clear
 }
-DaySuffix() {
-  case `date +%d` in
-    1|21|31) echo "st";;
-    2|22)    echo "nd";;
-    3|23)    echo "rd";;
-    *)       echo "th";;
-  esac
-}
 vimcfg(){
 	nvim ~/.config/nvim/init.vim
-}
-
-ghf() {
-	export FOLDER_BASE_PATH=~/Documents/repositories/github.com
-	if [ ! -d $FOLDER_BASE_PATH/$1 ]; then
-		vared -p "Do you want to create the repository '$1'? (y/n)\n: " -c repo_accept
-		if [ $repo_accept = "y" ]; then
-			mkdir -p -- "$FOLDER_BASE_PATH/$1" \
-			&& cd -P -- "$FOLDER_BASE_PATH/$1" \
-			&& git init
-		else
-			return 0;
-		fi
-	fi
-	[[ -d $FOLDER_BASE_PATH/$1 ]] && cd -P -- "$FOLDER_BASE_PATH/$1"
 }
 osupdate() {
 	sudo apt update && sudo apt upgrade -y
@@ -194,3 +172,38 @@ dcd() {
 hs() {
 	pactl set-sink-volume $1 $2%
 }
+
+# pnpm
+export PNPM_HOME="/home/oezguer/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+# ZSH_TMUX_AUTOSTART=true
+# if [ -z "$TMUX" ]
+
+# then
+
+#       tmux -u attach -t TMUX || tmux -u new -s TMUX
+
+# fi
+
+cheat() {
+  curl -s https://cht.sh/$1 | less
+}
+
+clera() {
+  clear
+}
+
+# Turso
+export PATH="/home/oezguer/.turso:$PATH"
+
+# bun completions
+[ -s "/home/oezguer/.bun/_bun" ] && source "/home/oezguer/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+eval "$(atuin init zsh)"
