@@ -196,6 +196,10 @@ clera() {
   clear
 }
 
+lg() {
+  lazygit
+}
+
 # Turso
 export PATH="/home/oezguer/.turso:$PATH"
 
