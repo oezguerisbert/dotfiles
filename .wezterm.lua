@@ -13,6 +13,11 @@ config.keys = {
     mods = 'ALT',
     action = act.CloseCurrentTab { confirm = false },
   },
+  { 
+    key = 'Backspace', 
+    mods = 'CTRL', 
+    action = act.SendKey {key = 'w', mods = 'CTRL'}
+  },
 }
 
 config.use_fancy_tab_bar = false
